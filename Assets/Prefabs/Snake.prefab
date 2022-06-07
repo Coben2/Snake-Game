@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8895198317205747587}
   - component: {fileID: 4735484059717038526}
   - component: {fileID: 5319126790480477300}
-  - component: {fileID: 7911377890678510155}
   m_Layer: 0
   m_Name: Snake
   m_TagString: Untagged
@@ -113,18 +112,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7911377890678510155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703722524363570650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dcc1e6b681cedd4e9b2f7c9be286e1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  apple: {fileID: 0}
-  snake: {fileID: 1890035049299396373, guid: a193e44ef67ecdd4fa5b359571fbf955, type: 3}
