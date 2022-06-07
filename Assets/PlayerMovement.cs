@@ -8,8 +8,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject apple;
     [SerializeField] private GameObject snake;
 
+    private Vector3 previousPosition;
+    private Vector3 dir;
 
-    
+    public float offSet = 0.5f;
+    private GameObject previousSnakePart;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
 
         transform.Translate(move, Space.Self);
 
+        dir = transform.position - previousPosition;
+        Debug.Log(dir);
+        previousPosition = transform.position;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,8 +42,11 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             Vector3 range = new Vector3(Random.Range(1, 10), -5.52f, Random.Range(-4, 4));
             Instantiate(apple, range, Quaternion.identity);
-            Instantiate(snake, transform.position - new Vector3(1, 0, 0), Quaternion.LookRotation(transform.rotation.ToEuler(), Vector3.up));
-            
+            var snakePart = Instantiate(snake);
+            previousSnakePart = snakePart;
+            //snakePart.transform.position = previousSnakePart.transform.position;
+            Vector3 snakePosition = previousSnakePart.transform.position + new Vector3(-dir.x + offSet, -5.52f, -dir.z + offSet);
+        
         }
 
 
